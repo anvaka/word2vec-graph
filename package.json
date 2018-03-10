@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "for-each-line": "^1.0.0",
+    "ngraph.graph": "0.0.14",
+    "ngraph.offline.layout": "^1.1.1",
+    "ngraph.tobinary": "^1.0.1"
+  }
+}
