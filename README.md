@@ -1,7 +1,7 @@
 # word2vec graph
 
-* [Wikipedia](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-7912&cy=-941&cz=-5655&lx=-0.3936&ly=-0.6815&lz=0.0636&lw=0.6137&ml=150&s=1.75&l=1&v=d50)
-* [Common Crawl](https://anvaka.github.io/pm/#/galaxy/word2vec-crawl?cx=-2411&cy=6376&cz=-7215&lx=0.0797&ly=-0.8449&lz=-0.4924&lw=0.1930&ml=150&s=1.75&l=1&v=d300)
+* [Wikipedia visualization](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-7912&cy=-941&cz=-5655&lx=-0.3936&ly=-0.6815&lz=0.0636&lw=0.6137&ml=150&s=1.75&l=1&v=d50) - 6.9 MB
+* [Common Crawl visualization](https://anvaka.github.io/pm/#/galaxy/word2vec-crawl?cx=-2411&cy=6376&cz=-7215&lx=0.0797&ly=-0.8449&lz=-0.4924&lw=0.1930&ml=150&s=1.75&l=1&v=d300) - 28.4MB
 
 word2vec is a family of algorithms that allow you to find embeddings of words
 into high-dimensional vector spaces.
@@ -29,7 +29,7 @@ corpus. This allows us to find distances between words:
 We can simply iterate over every single word in the dictionary and add them into
 a graph. But what would be an edge in this graph?
 
-We draw an edge between two words if distance between emvedding vectors is
+We draw an edge between two words if distance between embedding vectors is
 shorter than a given threshold.
 
 Once the graph is constructed, I'm using a method described here: [Your own graphs](https://github.com/anvaka/pm#your-own-graphs)
