@@ -57,7 +57,8 @@ interesting to explore. As I hoped from one cluster to another, just to find out
 that one was dedicated to numbers `2017 - 2300`, while the other to `0.501 .. 0.403`
 
 In Common Crawl word2vec encoding, I removed all words that had non-word characters
-or numbers. In my opinion, this made visualization more interesting to explore.
+or numbers. In my opinion, this made visualization more interesting to explore, yet
+still, I don't recognize a lot of clusters.
 
 # Local setup
 
