@@ -1,7 +1,47 @@
 # word2vec graph
 
-* [Wikipedia visualization](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-7912&cy=-941&cz=-5655&lx=-0.3936&ly=-0.6815&lz=0.0636&lw=0.6137&ml=150&s=1.75&l=1&v=d50) - 6.9 MB
+This visualization builds graphs of nearest neighbors from high-dimensional
+word2vec embeddings.
+
+![demo 1](https://i.imgur.com/dn0Egqo.gif)
+![demo 2](https://i.imgur.com/Xtv1Haq.gif)
+![demo words](https://i.imgur.com/zJKZEve.gif)
+
+## Available Graphs
+
+The dataset used for this visualization comes from [GloVe](https://nlp.stanford.edu/projects/glove/),
+and has 6B tokens, 400K vocabulary, 300-dimensional vectors.
+
+* [Distance < 0.9](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-4431&cy=3921&cz=-1124&lx=0.3701&ly=0.4218&lz=-0.0634&lw=0.8253&ml=300&s=1.75&l=1&v=d50_clean_small) -
+In this visualization edge between words is formed when distance between corresponding
+words' vectors is smaller than 0.9. All words with non-word characters and digits are removed.
+The final visualization is sparse, yet meaningful.
+
+* [Distance < 1.0](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=88&cy=-10541&cz=1431&lx=0.1555&ly=0.6672&lz=-0.1453&lw=0.7139&ml=300&s=1.75&l=1&v=d50_clean) -
+Similar to above, yet distance requirement is relaxed. Words with distance smaller than 1.0 are
+given edges in the graph. All words with non-word characters and digits are removed. 
+The visualization becomes more populated as more words are added. Still meaningful.
+
+* [Raw; Distance < 0.9](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-7912&cy=-941&cz=-5655&lx=-0.3936&ly=-0.6815&lz=0.0636&lw=0.6137&ml=150&s=1.75&l=1&v=d50) (6.9 MB) -
+Unlike visualizations above, this one was not filtered and includes all words from the
+dataset. Majority of the clusters formed here have numerical nature. I didn't find this one
+particularly interesting, yet I'm including it to show how word2vec finds numerical clusters.
+
+### Common Crawl
+
+I have also made a graph from Common Crawl dataset (840B tokens, 2.2M vocab, 300d vectors).
+Words with non-word characters and numbers were removed.
+
+Many clusters that remained represent words with spelling errors:
+
+![spelling error](https://i.imgur.com/Ftj2Ce7.gif)
+
+I had hard time deciphering meaning of many clusters here. Wikipedia embeddings were much more
+meaningful. Nevertheless I want to keep this visualization to let you explore it as well:
+
 * [Common Crawl visualization](https://anvaka.github.io/pm/#/galaxy/word2vec-crawl?cx=-2411&cy=6376&cz=-7215&lx=0.0797&ly=-0.8449&lz=-0.4924&lw=0.1930&ml=150&s=1.75&l=1&v=d300) - 28.4MB
+
+# Intro and Details
 
 [word2vec](https://en.wikipedia.org/wiki/Word2vec) is a family of algorithms
 that allow you to find embeddings of words into high-dimensional vector spaces.
@@ -13,7 +53,7 @@ dog => [0.9, 0.0, 0.0]
 cow => [0.6, 1.0, 0.5]
 ```
 
-Vectors with shorter distances between them usually share comon contexts in the
+Vectors with shorter distances between them usually share common contexts in the
 corpus. This allows us to find distances between words:
 
 ```
@@ -35,7 +75,7 @@ shorter than a given threshold.
 Once the graph is constructed, I'm using a method described here: [Your own graphs](https://github.com/anvaka/pm#your-own-graphs)
 to construct visualizations.
 
-*Note* From parcical standpoint, searching all nearest neghbours in high dimensional
+*Note* From practical standpoint, searching all nearest neighbors in high dimensional
 space is a very CPU intensive task. Building an index of vectors help. I didn't
 know a good library for this task, so I [consulted Twitter](https://twitter.com/anvaka/status/971812468950487040).
 Amazing recommendations by [@gumgumeo](https://twitter.com/gumgumeo) and [@AMZoellner](https://twitter.com/AMZoellner)
@@ -85,7 +125,7 @@ this make take a while. The output file `edges.txt` will be saved in the
 4. run `node edges2graph.js graph-data/edges.txt` - this will save graph in 
 binary format into `graph-data` folder (graph-data/labels.json, graph-data/links.bin)
 5. Now it's time to run layout. There are two options. One is slow, the other one is
-much faster especially on the multithreaded CPU.
+much faster especially on the multi-threaded CPU.
 
 ### Running layout with node
 
