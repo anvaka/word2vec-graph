@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import re
 # Install from https://github.com/spotify/annoy
 from annoy import AnnoyIndex
@@ -66,8 +68,8 @@ for idx in range(len(words)):
         out.write(word + '\t' + " ".join(edges) + '\n')
 
     if idx % 10000 == 0:
-        print idx
+        print(idx)
 
 out.close()
 
-print "All done"
+print("All done")
