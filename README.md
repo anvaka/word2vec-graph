@@ -117,8 +117,8 @@ Install [spotify/annoy](https://github.com/spotify/annoy)
 ## Building graph file
 
 1. Download the vectors, and extract them into graph-data
-2. Modify `save_text_edges.py` to point to newly extracted vectors (see file
-for more comments)
+2. Run `save_text_edges.py -h` to see how to point it to th newly extracted.
+vectors (also see file content for more details)
 3. run `python save_text_edges.py` - depending on input vector file size
 this make take a while. The output file `edges.txt` will be saved in the 
 `graph-data` folder.
