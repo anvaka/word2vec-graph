@@ -64,7 +64,7 @@ corpus. This allows us to find distances between words:
 "cat" is closer to "dog" than it is to the "cow".
 ```
 
-## building a graph
+## Building a graph
 
 We can simply iterate over every single word in the dictionary and add them into
 a graph. But what would be an edge in this graph?
