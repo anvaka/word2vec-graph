@@ -6,7 +6,7 @@ var saveGraph = require('ngraph.tobinary');
 forEachLine(edgesFileName, (line) => {
   var parts = line.split('\t');
   if (parts.length !== 2) {
-    console.log('Somethign is wrong here: ', line);
+    console.log('Something is wrong here: ', line);
     return;
   }
   var destinations = parts[1].split(' ');
